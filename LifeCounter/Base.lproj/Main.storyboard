@@ -16,149 +16,138 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHL-Og-lOk">
-                                <rect key="frame" x="31" y="89" width="100" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="H0E-GF-o6Q">
+                                <rect key="frame" x="23" y="107" width="347" height="238"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6w-SQ-NbT">
+                                        <rect key="frame" x="0.66666666666665719" y="0.0" width="345.66666666666674" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHL-Og-lOk">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="3N8-wm-fmi">
+                                                <rect key="frame" x="0.0" y="53" width="345.66666666666669" height="21"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-Wv-KMN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="jfq-NC-XL6"/>
+                                                            <constraint firstAttribute="width" constant="134" id="n2N-MQ-w09"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxq-f0-Aci">
+                                                        <rect key="frame" x="145" y="0.0" width="42" height="21"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="+1"/>
+                                                        <connections>
+                                                            <action selector="addLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRw-yb-G0R"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-bS-uLT">
+                                                        <rect key="frame" x="198" y="0.0" width="39.333333333333343" height="21"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="-1"/>
+                                                        <connections>
+                                                            <action selector="removeLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="obe-ZQ-9Ab"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-AR-gfG">
+                                                        <rect key="frame" x="248.33333333333334" y="0.0" width="44.666666666666657" height="21"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="+5"/>
+                                                        <connections>
+                                                            <action selector="addFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vS2-Tf-Wmw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-L7-6Ua">
+                                                        <rect key="frame" x="304" y="0.0" width="41.666666666666686" height="21"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="-5"/>
+                                                        <connections>
+                                                            <action selector="removeFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Clm-ze-EKg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Iwv-qA-XfS">
+                                        <rect key="frame" x="0.66666666666665719" y="159" width="345.66666666666674" height="79"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9q-di-bkW">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" systemColor="systemMintColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-r6-uCq">
+                                                <rect key="frame" x="0.0" y="58" width="345.66666666666669" height="21"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y11-1X-xlS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="DdF-YI-wfE"/>
+                                                            <constraint firstAttribute="width" constant="134" id="zzN-d1-DnW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoT-HS-meg">
+                                                        <rect key="frame" x="145" y="0.0" width="42" height="21"/>
+                                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="+1"/>
+                                                        <connections>
+                                                            <action selector="addLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ih-o7-stb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQx-b1-fk0">
+                                                        <rect key="frame" x="198" y="0.0" width="39.333333333333343" height="21"/>
+                                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="-1"/>
+                                                        <connections>
+                                                            <action selector="removeLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gbn-h4-Gf4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-Js-8Va">
+                                                        <rect key="frame" x="248.33333333333334" y="0.0" width="44.666666666666657" height="21"/>
+                                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="+5"/>
+                                                        <connections>
+                                                            <action selector="addFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aa3-Z2-kbj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-SE-Lt7">
+                                                        <rect key="frame" x="304" y="0.0" width="41.666666666666686" height="21"/>
+                                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="-5"/>
+                                                        <connections>
+                                                            <action selector="removeFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeT-VJ-UGC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peu-4E-eXX">
+                                <rect key="frame" x="24" y="762" width="345" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="dHL-Og-lOk" secondAttribute="height" multiplier="25:9" id="5rW-ZK-drz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="systemIndigoColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-Wv-KMN">
-                                <rect key="frame" x="31" y="142" width="134" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QJO-Wv-KMN" secondAttribute="height" multiplier="134:21" id="5iN-xA-HlM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-Fw-jdk">
-                                <rect key="frame" x="173" y="129" width="35" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bYa-Fw-jdk" secondAttribute="height" multiplier="35:39" id="EMQ-JQ-KNM"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+"/>
-                                <connections>
-                                    <action selector="addLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fxb-yt-EjL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iv-9p-y34">
-                                <rect key="frame" x="223" y="132" width="32" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8iv-9p-y34" secondAttribute="height" multiplier="32:39" id="7zz-oH-Ft9"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-"/>
-                                <connections>
-                                    <action selector="removeLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wRE-QH-qFY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg4-DC-d2t">
-                                <rect key="frame" x="269" y="132" width="45" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Bg4-DC-d2t" secondAttribute="height" multiplier="15:13" id="fSx-zW-VDU"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+5"/>
-                                <connections>
-                                    <action selector="addFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8sr-Bs-U8L"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLC-nr-KnG">
-                                <rect key="frame" x="329" y="132" width="42" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="SLC-nr-KnG" secondAttribute="height" multiplier="14:13" id="l1v-TW-BLH"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-5"/>
-                                <connections>
-                                    <action selector="removeFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQu-Tu-PyE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBO-Jv-Xs5">
-                                <rect key="frame" x="31" y="344" width="134" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="EBO-Jv-Xs5" secondAttribute="height" multiplier="134:21" id="lSl-y4-Mjo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5F0-kn-xj3">
-                                <rect key="frame" x="173" y="329" width="35" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5F0-kn-xj3" secondAttribute="height" multiplier="35:39" id="SoO-kU-wx2"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemMintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+"/>
-                                <connections>
-                                    <action selector="addLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnk-8o-4me"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkT-BR-dz0">
-                                <rect key="frame" x="223" y="335" width="32" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="GkT-BR-dz0" secondAttribute="height" multiplier="32:39" id="hjo-r0-Ww1"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemMintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-"/>
-                                <connections>
-                                    <action selector="removeLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AMY-5s-tA4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuN-4r-Zb9">
-                                <rect key="frame" x="270" y="335" width="45" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="RuN-4r-Zb9" secondAttribute="height" multiplier="15:13" id="yCE-hA-qKm"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemMintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+5"/>
-                                <connections>
-                                    <action selector="addFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqf-qc-5Th"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89w-OC-549">
-                                <rect key="frame" x="330" y="335" width="42" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="89w-OC-549" secondAttribute="height" multiplier="14:13" id="ShC-YD-MNX"/>
-                                    <constraint firstAttribute="width" secondItem="89w-OC-549" secondAttribute="height" multiplier="14:13" id="gJI-l5-rRK"/>
-                                    <constraint firstAttribute="width" secondItem="89w-OC-549" secondAttribute="height" multiplier="14:13" id="iT5-DH-2UH"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemMintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-5"/>
-                                <connections>
-                                    <action selector="removeFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n0B-L8-lTn"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9q-di-bkW">
-                                <rect key="frame" x="31" y="291" width="104" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="F9q-di-bkW" secondAttribute="height" multiplier="26:9" id="PRQ-Pj-P6z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="systemMintColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="PRQ-Pj-P6z"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peu-4E-eXX">
-                                <rect key="frame" x="134" y="766" width="125" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="FWc-51-btA"/>
                                     <constraint firstAttribute="height" constant="26" id="Q6k-mx-FoR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -169,55 +158,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bYa-Fw-jdk" firstAttribute="leading" secondItem="QJO-Wv-KMN" secondAttribute="trailing" constant="8" symbolic="YES" id="5dz-pU-NRY"/>
-                            <constraint firstItem="F9q-di-bkW" firstAttribute="top" secondItem="QJO-Wv-KMN" secondAttribute="bottom" constant="128" id="8lF-IZ-voY"/>
-                            <constraint firstItem="GkT-BR-dz0" firstAttribute="leading" secondItem="EBO-Jv-Xs5" secondAttribute="leading" constant="192" id="FYa-2L-gu3"/>
-                            <constraint firstItem="5F0-kn-xj3" firstAttribute="leading" secondItem="EBO-Jv-Xs5" secondAttribute="leading" constant="142" id="Gc7-fM-ehS"/>
-                            <constraint firstItem="SLC-nr-KnG" firstAttribute="leading" secondItem="QJO-Wv-KMN" secondAttribute="leading" constant="298" id="Gov-Ib-U0g"/>
-                            <constraint firstItem="8iv-9p-y34" firstAttribute="leading" secondItem="bYa-Fw-jdk" secondAttribute="trailing" constant="14" id="KV8-X3-Nel"/>
-                            <constraint firstItem="5F0-kn-xj3" firstAttribute="top" secondItem="bYa-Fw-jdk" secondAttribute="bottom" constant="161" id="MRz-Mv-P5x"/>
-                            <constraint firstItem="QJO-Wv-KMN" firstAttribute="top" secondItem="dHL-Og-lOk" secondAttribute="bottom" constant="17" id="N5l-LG-0eZ"/>
-                            <constraint firstItem="RuN-4r-Zb9" firstAttribute="top" secondItem="Bg4-DC-d2t" secondAttribute="bottom" constant="164" id="N7a-GT-WgU"/>
-                            <constraint firstItem="8iv-9p-y34" firstAttribute="leading" secondItem="QJO-Wv-KMN" secondAttribute="leading" constant="192" id="NU2-OD-fTw"/>
-                            <constraint firstItem="bYa-Fw-jdk" firstAttribute="leading" secondItem="QJO-Wv-KMN" secondAttribute="leading" constant="142" id="QQb-Fk-lLb"/>
-                            <constraint firstItem="dHL-Og-lOk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="RTZ-Me-r65"/>
-                            <constraint firstItem="8iv-9p-y34" firstAttribute="leading" secondItem="bYa-Fw-jdk" secondAttribute="trailing" constant="10" id="SZw-jA-X0H"/>
-                            <constraint firstItem="QJO-Wv-KMN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="SvV-nd-S1d"/>
-                            <constraint firstItem="bYa-Fw-jdk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="TBn-Xm-3XH"/>
-                            <constraint firstItem="Bg4-DC-d2t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="ULR-0N-ihn"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="top" secondItem="SLC-nr-KnG" secondAttribute="bottom" constant="164" id="Vhy-07-To1"/>
-                            <constraint firstItem="Bg4-DC-d2t" firstAttribute="leading" secondItem="8iv-9p-y34" secondAttribute="trailing" constant="15" id="WJB-Jd-0tG"/>
-                            <constraint firstItem="EBO-Jv-Xs5" firstAttribute="top" secondItem="F9q-di-bkW" secondAttribute="bottom" constant="17" id="YQZ-5H-nwH"/>
-                            <constraint firstItem="GkT-BR-dz0" firstAttribute="leading" secondItem="5F0-kn-xj3" secondAttribute="trailing" constant="15" id="Ycl-SD-kla"/>
-                            <constraint firstItem="EBO-Jv-Xs5" firstAttribute="top" secondItem="F9q-di-bkW" secondAttribute="bottom" constant="17" id="ZCx-WH-tNo"/>
-                            <constraint firstItem="GkT-BR-dz0" firstAttribute="top" secondItem="8iv-9p-y34" secondAttribute="bottom" constant="164" id="afy-G0-ByN"/>
-                            <constraint firstItem="RuN-4r-Zb9" firstAttribute="leading" secondItem="GkT-BR-dz0" secondAttribute="trailing" constant="15" id="axu-ns-Mrs"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="leading" secondItem="EBO-Jv-Xs5" secondAttribute="leading" constant="299" id="cFG-06-fPJ"/>
-                            <constraint firstItem="EBO-Jv-Xs5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="d8Z-YZ-OtT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="peu-4E-eXX" secondAttribute="bottom" constant="26" id="dwN-96-PGz"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="leading" secondItem="RuN-4r-Zb9" secondAttribute="trailing" constant="15" id="fxn-Yw-PMy"/>
-                            <constraint firstItem="F9q-di-bkW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="g4U-VT-ADA"/>
-                            <constraint firstItem="dHL-Og-lOk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="gLQ-c9-3kW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="peu-4E-eXX" secondAttribute="bottom" constant="26" id="gln-fi-FTr"/>
-                            <constraint firstItem="8iv-9p-y34" firstAttribute="leading" secondItem="bYa-Fw-jdk" secondAttribute="trailing" constant="15" id="hQw-s5-JJF"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="top" secondItem="SLC-nr-KnG" secondAttribute="bottom" constant="164" id="hgO-Qa-v1C"/>
-                            <constraint firstItem="SLC-nr-KnG" firstAttribute="leading" secondItem="Bg4-DC-d2t" secondAttribute="trailing" constant="15" id="iGA-je-umO"/>
-                            <constraint firstItem="RuN-4r-Zb9" firstAttribute="leading" secondItem="GkT-BR-dz0" secondAttribute="trailing" constant="15" id="k8R-gS-uqx"/>
-                            <constraint firstItem="RuN-4r-Zb9" firstAttribute="leading" secondItem="GkT-BR-dz0" secondAttribute="trailing" constant="15" id="kYe-R0-jtn"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="leading" secondItem="RuN-4r-Zb9" secondAttribute="trailing" constant="15" id="kqc-Hi-8Qs"/>
-                            <constraint firstItem="89w-OC-549" firstAttribute="top" secondItem="SLC-nr-KnG" secondAttribute="bottom" constant="164" id="paX-wg-Ua8"/>
-                            <constraint firstItem="peu-4E-eXX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qgv-dI-Wxd"/>
-                            <constraint firstItem="RuN-4r-Zb9" firstAttribute="leading" secondItem="EBO-Jv-Xs5" secondAttribute="leading" constant="239" id="uZy-et-hbz"/>
-                            <constraint firstItem="SLC-nr-KnG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="vCY-H3-BoD"/>
-                            <constraint firstItem="Bg4-DC-d2t" firstAttribute="leading" secondItem="8iv-9p-y34" secondAttribute="trailing" constant="14" id="vZr-tL-Rax"/>
-                            <constraint firstItem="Bg4-DC-d2t" firstAttribute="leading" secondItem="QJO-Wv-KMN" secondAttribute="leading" constant="238" id="veE-M0-Pqz"/>
-                            <constraint firstItem="SLC-nr-KnG" firstAttribute="leading" secondItem="Bg4-DC-d2t" secondAttribute="trailing" constant="15" id="xkt-0f-Pya"/>
-                            <constraint firstItem="8iv-9p-y34" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="ysx-oE-0Wh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="peu-4E-eXX" secondAttribute="bottom" constant="30" id="1jW-sv-nPD"/>
+                            <constraint firstItem="peu-4E-eXX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Ylg-zY-hMK"/>
+                            <constraint firstItem="H0E-GF-o6Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="g1r-vF-dot"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0E-GF-o6Q" secondAttribute="trailing" constant="23" id="iV9-at-3oW"/>
+                            <constraint firstItem="H0E-GF-o6Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="oEZ-ZK-Buh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="peu-4E-eXX" secondAttribute="trailing" constant="24" id="uVu-o6-u23"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lifeCount" destination="QJO-Wv-KMN" id="XYM-S9-oT8"/>
-                        <outlet property="lifeCountTwo" destination="EBO-Jv-Xs5" id="iFR-LI-Fdg"/>
+                        <outlet property="lifeCountTwo" destination="y11-1X-xlS" id="xnb-yT-Apj"/>
                         <outlet property="result" destination="peu-4E-eXX" id="aFC-6c-IaV"/>
                     </connections>
                 </viewController>
