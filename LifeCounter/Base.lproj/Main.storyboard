@@ -43,38 +43,42 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxq-f0-Aci">
                                                         <rect key="frame" x="145" y="0.0" width="42" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p1"/>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="tinted" title="+1"/>
                                                         <connections>
-                                                            <action selector="addLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRw-yb-G0R"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZGR-hh-yoo"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-bS-uLT">
                                                         <rect key="frame" x="198" y="0.0" width="39.333333333333343" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p1"/>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="tinted" title="-1"/>
                                                         <connections>
-                                                            <action selector="removeLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="obe-ZQ-9Ab"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rsr-Jg-q1J"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-AR-gfG">
                                                         <rect key="frame" x="248.33333333333334" y="0.0" width="44.666666666666657" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p1"/>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="+5"/>
                                                         <connections>
-                                                            <action selector="addFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vS2-Tf-Wmw"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4x7-lm-68T"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-L7-6Ua">
                                                         <rect key="frame" x="304" y="0.0" width="41.666666666666686" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p1"/>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="-5"/>
                                                         <connections>
-                                                            <action selector="removeFiveLife:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Clm-ze-EKg"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yJH-GI-VKZ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -105,38 +109,42 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoT-HS-meg">
                                                         <rect key="frame" x="145" y="0.0" width="42" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p2"/>
                                                         <color key="tintColor" systemColor="systemMintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="tinted" title="+1"/>
                                                         <connections>
-                                                            <action selector="addLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ih-o7-stb"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0X-zp-2ga"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQx-b1-fk0">
                                                         <rect key="frame" x="198" y="0.0" width="39.333333333333343" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p2"/>
                                                         <color key="tintColor" systemColor="systemMintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="tinted" title="-1"/>
                                                         <connections>
-                                                            <action selector="removeLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gbn-h4-Gf4"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qp3-p0-zm1"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-Js-8Va">
                                                         <rect key="frame" x="248.33333333333334" y="0.0" width="44.666666666666657" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p2"/>
                                                         <color key="tintColor" systemColor="systemMintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="+5"/>
                                                         <connections>
-                                                            <action selector="addFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aa3-Z2-kbj"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gvT-U2-2RY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-SE-Lt7">
                                                         <rect key="frame" x="304" y="0.0" width="41.666666666666686" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="p2"/>
                                                         <color key="tintColor" systemColor="systemMintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="-5"/>
                                                         <connections>
-                                                            <action selector="removeFiveLifeTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeT-VJ-UGC"/>
+                                                            <action selector="updateLifeCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U4p-jH-5pq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -167,8 +175,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lifeCount" destination="QJO-Wv-KMN" id="XYM-S9-oT8"/>
-                        <outlet property="lifeCountTwo" destination="y11-1X-xlS" id="xnb-yT-Apj"/>
+                        <outlet property="lifeCountLabel" destination="QJO-Wv-KMN" id="dcv-fr-Qr1"/>
+                        <outlet property="lifeCountTwoLabel" destination="y11-1X-xlS" id="O07-uE-4oH"/>
                         <outlet property="result" destination="peu-4E-eXX" id="aFC-6c-IaV"/>
                     </connections>
                 </viewController>

@@ -9,78 +9,44 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lifeCountLabel: UILabel!
+    @IBOutlet weak var lifeCountTwoLabel: UILabel!
+    @IBOutlet weak var result: UILabel!
+    var lifeCounts: [Int] = []
+    var labels: [UILabel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        updateLifeCount()
-        updateLifeCount2()
+        lifeCounts = [20, 20]
+        labels = [lifeCountLabel, lifeCountTwoLabel]
+        displayLife(player: 0)
+        displayLife(player: 1)
     }
-
-    @IBOutlet weak var lifeCount: UILabel!
-    var count = 20
     
-    func updateLifeCount() {
-        lifeCount.text = "Life Count: \(count)"
+    func displayLife(player: Int) {
+        labels[player].text = "Life Count: \(lifeCounts[player])"
         playerResult()
     }
-    
-    @IBAction func addLife(_ sender: Any) {
-        count += 1
-        updateLifeCount()
-    }
-    
-    @IBAction func removeLife(_ sender: Any) {
-        count -= 1
-        updateLifeCount()
-    }
-    
-    @IBAction func addFiveLife(_ sender: Any) {
-        count += 5
-        updateLifeCount()
-    }
-    
-    @IBAction func removeFiveLife(_ sender: Any) {
-        count -= 5
-        updateLifeCount()
-    }
-    
-    //Player 2
-    @IBOutlet weak var lifeCountTwo: UILabel!
-    var count2 = 20
-    
-    func updateLifeCount2() {
-        lifeCountTwo.text = "Life Count: \(count2)"
-        playerResult()
-    }
-    
-    @IBAction func addLifeTwo(_ sender: Any) {
-        count2 += 1
-        updateLifeCount2()
-    }
-    
-    @IBAction func removeLifeTwo(_ sender: Any) {
-        count2 -= 1
-        updateLifeCount2()
-    }
-    
-    @IBAction func addFiveLifeTwo(_ sender: Any) {
-        count2 += 5
-        updateLifeCount2()
-    }
-    
-    @IBAction func removeFiveLifeTwo(_ sender: Any) {
-        count2 -= 5
-        updateLifeCount2()
-    }
-    
-    @IBOutlet weak var result: UILabel!
     
     func playerResult() {
-        if count <= 0 {
+        if lifeCounts[0] <= 0 {
             result.text = "Player 1 LOSES"
-        } else if count2 <= 0 {
+        } else if lifeCounts[1] <= 0 {
             result.text = "Player 2 LOSES"
         }
+    }
+    
+    @IBAction func updateLifeCount(_ sender: UIButton) {
+        var player: Int
+        if (sender.accessibilityIdentifier == "p1") {
+            player = 0
+        } else {
+            player = 1
+        }
+        var val = Int((sender.titleLabel?.text)!)
+        lifeCounts[player] += val!
+        displayLife(player: player)
     }
 }
 
