@@ -16,6 +16,7 @@
 		F9238FFE2BCDC9EA0076CC0A /* LifeCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9238FFD2BCDC9EA0076CC0A /* LifeCounterTests.swift */; };
 		F92390082BCDC9EA0076CC0A /* LifeCounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92390072BCDC9EA0076CC0A /* LifeCounterUITests.swift */; };
 		F923900A2BCDC9EA0076CC0A /* LifeCounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92390092BCDC9EA0076CC0A /* LifeCounterUITestsLaunchTests.swift */; };
+		F94808F62BD38E930099D6EA /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94808F52BD38E930099D6EA /* player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F92390032BCDC9EA0076CC0A /* LifeCounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeCounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92390072BCDC9EA0076CC0A /* LifeCounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterUITests.swift; sourceTree = "<group>"; };
 		F92390092BCDC9EA0076CC0A /* LifeCounterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F94808F52BD38E930099D6EA /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F9238FEF2BCDC9E90076CC0A /* Assets.xcassets */,
 				F9238FF12BCDC9E90076CC0A /* LaunchScreen.storyboard */,
 				F9238FF42BCDC9E90076CC0A /* Info.plist */,
+				F94808F52BD38E930099D6EA /* player.swift */,
 			);
 			path = LifeCounter;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94808F62BD38E930099D6EA /* player.swift in Sources */,
 				F9238FEB2BCDC9E90076CC0A /* ViewController.swift in Sources */,
 				F9238FE72BCDC9E90076CC0A /* AppDelegate.swift in Sources */,
 				F9238FE92BCDC9E90076CC0A /* SceneDelegate.swift in Sources */,
