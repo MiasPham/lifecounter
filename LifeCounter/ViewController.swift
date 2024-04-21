@@ -21,24 +21,11 @@ class ViewController: UIViewController {
     var labels: [UILabel] = []
     var lifeInputs: [UITextField] = []
     var addPlayerBtn = UIButton(type: .roundedRect)
+    var histories: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        lifeCounts = [20, 20]
-//        labels = [lifeCountLabel, lifeCountTwoLabel]
-//        lifeInputs = [lifeInput, lifeInputTwo]
-//        displayLife(player: 0)
-//        displayLife(player: 1)
-//        
-//        let button = UIButton()
-//        button.addTarget(self,
-//            action: #selector(ViewController.buttonPressed(sender:)),
-//            for: .touchUpInside)
-//        self.view.addSubview(button)
-        
-//        self.view.addSubview(mainView)
-        
         addPlayerBtn.setTitle("Add player", for: .normal)
         addPlayerBtn.tag = 1
 //        addBtn.frame = coords[((num-1) / 3)][((num-1) % 3)]
@@ -56,6 +43,12 @@ class ViewController: UIViewController {
     
     var playerCount = 0
     var playerStackView: UIStackView!
+    
+    @IBAction func showHistory(_ sender: UIButton) {
+        var historyViewController = self.storyboard!.instantiateViewController(withIdentifier: "history_view") as! HistoryViewController
+        historyViewController.showHistory(histories)
+        self.present(historyViewController, animated: true, completion: nil)
+    }
     
     @IBAction func addPlayer(_ sender: UIButton) {
         let playerLabel = UILabel()
@@ -158,7 +151,17 @@ class ViewController: UIViewController {
         }
         
         // Read the life change amount from the text field
+        var previousLife = lifeCounts[player]
         lifeCounts[player] += sign  * lifeChange
+        
+        var recordStr = "Player \(player + 1) has "
+        
+        if (previousLife < lifeCounts[player]) {
+            histories.append(recordStr + "increased by \(lifeCounts[player] - previousLife)")
+        } else {
+            histories.append(recordStr + "decreased by \(-lifeCounts[player] + previousLife)")
+        }
+        
         addPlayerBtn.isEnabled = false
         displayLife(player: player)
         // Clear the text field after updating

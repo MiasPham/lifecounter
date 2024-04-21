@@ -22,13 +22,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fZ-c0-QCx">
+                                <rect key="frame" x="294" y="59" width="79" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="History"/>
+                                <connections>
+                                    <action selector="showHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIk-YD-iHO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X97-HO-E51" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="L7F-k0-u4j"/>
                             <constraint firstAttribute="bottom" secondItem="X97-HO-E51" secondAttribute="bottom" constant="40" id="Rhj-Ug-rJT"/>
+                            <constraint firstItem="8fZ-c0-QCx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m6l-1M-Jda"/>
                             <constraint firstAttribute="trailing" secondItem="X97-HO-E51" secondAttribute="trailing" constant="20" id="uTN-Qp-DR7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8fZ-c0-QCx" secondAttribute="trailing" constant="20" id="x2M-Az-UK5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -38,6 +48,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119.84732824427481" y="3.5211267605633805"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="qsI-bg-iZs">
+            <objects>
+                <viewController storyboardIdentifier="history_view" id="2JM-8j-wH2" customClass="HistoryViewController" customModule="LifeCounter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z9a-DD-DTI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="53N-M2-HDU">
+                                <rect key="frame" x="311.33333333333331" y="59" width="61.666666666666686" height="38.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcM-Hm-V06">
+                                        <rect key="frame" x="0.0" y="0.0" width="61.666666666666664" height="38.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                        <connections>
+                                            <action selector="backBtnAction:" destination="2JM-8j-wH2" eventType="touchUpInside" id="Bhh-Hw-LOG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rVJ-Y3-RHw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="53N-M2-HDU" firstAttribute="top" secondItem="rVJ-Y3-RHw" secondAttribute="top" id="EWX-XX-nJ3"/>
+                            <constraint firstItem="rVJ-Y3-RHw" firstAttribute="trailing" secondItem="53N-M2-HDU" secondAttribute="trailing" constant="20" id="prF-WR-Mhb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6J-AT-hBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13" y="-673"/>
         </scene>
     </scenes>
     <resources>
