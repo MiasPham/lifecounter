@@ -27,16 +27,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addPlayerBtn.setTitle("Add player", for: .normal)
-        addPlayerBtn.tag = 1
-//        addBtn.frame = coords[((num-1) / 3)][((num-1) % 3)]
-        addPlayerBtn.frame = CGRect(x: 39, y: 59, width:75 , height:39)
-        addPlayerBtn.layer.cornerRadius = 10
-        
+        addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+//        addPlayerBtn.frame = CGRect(x: 30, y: 60, width:90 , height:39)
+        addPlayerBtn.translatesAutoresizingMaskIntoConstraints = false
+
         self.view.addSubview(addPlayerBtn)
         
-        addPlayerBtn.addTarget(self, action: #selector(addPlayer(_:)), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+                addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
+                addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+                addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
+                addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
+            ])
         
-        for i in 1...4 {
+        addPlayerBtn.addTarget(self, action: #selector(addPlayer(_:)), for: .touchUpInside)
+
+        for _ in 1...4 {
             addPlayer(addPlayerBtn)
         }
     }
@@ -82,19 +88,21 @@ class ViewController: UIViewController {
         let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
         playerInfoStackView.axis = .vertical
         playerInfoStackView.alignment = .center
-        playerInfoStackView.spacing = 5
+        playerInfoStackView.spacing = 3
+        
         
         if playerCount == 0 {
             playerStackView = UIStackView(arrangedSubviews: [playerInfoStackView])
             playerStackView.axis = .vertical
-            playerStackView.spacing = 10
+//            playerStackView.distribution = .fillEqually
+            playerStackView.spacing = 20
             playerStackView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(playerStackView)
             
             NSLayoutConstraint.activate([
-                playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+                playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
             ])
         } else {
             playerStackView.addArrangedSubview(playerInfoStackView)
@@ -112,11 +120,6 @@ class ViewController: UIViewController {
     }
     
     func playerResult(player: Int) {
-//        if lifeCounts[0] <= 0 {
-//            result.text = "Player 1 LOSES"
-//        } else if lifeCounts[1] <= 0 {
-//            result.text = "Player 2 LOSES"
-//        }
         if lifeCounts[player] <= 0 {
             result.text = "Player \(player + 1) LOSES"
         }
@@ -136,7 +139,6 @@ class ViewController: UIViewController {
         let lifeChangeText = lifeInputs[player].text!
         var lifeChange = 1
         
-//        print(lifeChangeText)
         if (lifeChangeText != "" && lifeChangeText.isNumber) {
             lifeChange = Int(lifeChangeText)!
         } else if (lifeChangeText != "") {
