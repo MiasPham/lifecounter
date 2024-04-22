@@ -20,8 +20,10 @@ class ViewController: UIViewController {
     var lifeCounts: [Int] = []
     var labels: [UILabel] = []
     var lifeInputs: [UITextField] = []
+    var playerNames: [UILabel] = []
     var addPlayerBtn = UIButton(type: .roundedRect)
     var histories: [String] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +40,19 @@ class ViewController: UIViewController {
             addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
             addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
         ])
-        
         addPlayerBtn.addTarget(self, action: #selector(addPlayer(_:)), for: .touchUpInside)
         
         for _ in 1...4 {
             addPlayer(addPlayerBtn)
         }
+        
     }
     
     var playerCount = 0
     var playerStackView: UIStackView!
     
     @IBAction func showHistory(_ sender: UIButton) {
-        var historyViewController = self.storyboard!.instantiateViewController(withIdentifier: "history_view") as! HistoryViewController
+        let historyViewController = self.storyboard!.instantiateViewController(withIdentifier: "history_view") as! HistoryViewController
         historyViewController.showHistory(histories)
         self.present(historyViewController, animated: true, completion: nil)
     }
@@ -59,7 +61,11 @@ class ViewController: UIViewController {
         let playerLabel = UILabel()
         playerLabel.text = "Player \(playerCount + 1)"
         playerLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        //        playerLabel.preferredMaxLayoutWidth =
+        playerNames.append(playerLabel)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(playerNameTapped(_:)))
+        playerLabel.isUserInteractionEnabled = true
+        playerLabel.addGestureRecognizer(tapGesture)
+        playerLabel.tag = playerCount
         
         let lifeCountLabel = UILabel()
         lifeCountLabel.text = "Life Count: 20"
@@ -81,14 +87,6 @@ class ViewController: UIViewController {
         minusBtn.setTitle("-", for: .normal)
         minusBtn.accessibilityIdentifier = String(playerCount) + "-"
         minusBtn.addTarget(self, action: #selector(updateLifeCount(_:)), for: .touchUpInside)
-        
-        //        let buttonStackView = UIStackView(arrangedSubviews: [lifeCountLabel, minusBtn, inputTextField, addBtn])
-        //        buttonStackView.axis = .horizontal
-        
-        //        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
-        //        playerInfoStackView.axis = .horizontal
-        //        playerInfoStackView.alignment = .center
-        //        playerInfoStackView.spacing = 3
         
         let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, lifeCountLabel, minusBtn, inputTextField, addBtn])
         playerInfoStackView.axis = .horizontal
@@ -123,8 +121,9 @@ class ViewController: UIViewController {
     }
     
     func playerResult(player: Int) {
+        let playerName = playerNames[player].text!
         if lifeCounts[player] <= 0 {
-            result.text = "Player \(player + 1) LOSES"
+            result.text = "\(playerName) LOSES"
         }
     }
     
@@ -148,7 +147,6 @@ class ViewController: UIViewController {
             let alertAction = UIAlertAction(title: "OK!", style: .default, handler: nil)
             alertController.addAction(alertAction)
             
-            // Present UIAlertController
             present(alertController, animated: true, completion: nil)
             lifeInputs[player].text = ""
             return
@@ -156,19 +154,20 @@ class ViewController: UIViewController {
         }
         
         // Read the life change amount from the text field
-        var previousLife = lifeCounts[player]
+        let previousLife = lifeCounts[player]
         lifeCounts[player] += sign  * lifeChange
         
-        var recordStr = "Player \(player + 1) has "
+        let recordStr = playerNames[player].text!
         
         if (previousLife < lifeCounts[player]) {
-            histories.append(recordStr + "increased by \(lifeCounts[player] - previousLife)")
+            histories.append(recordStr + " has increased by \(lifeCounts[player] - previousLife)")
         } else {
-            histories.append(recordStr + "decreased by \(-lifeCounts[player] + previousLife)")
+            histories.append(recordStr + " has decreased by \(-lifeCounts[player] + previousLife)")
         }
         
         addPlayerBtn.isEnabled = false
         displayLife(player: player)
+        
         // Clear the text field after updating
         lifeInputs[player].text = ""
         
@@ -186,7 +185,6 @@ class ViewController: UIViewController {
             }
         }
         if playersLeft == 1 {
-            // Display "Game over!" message and OK button
             displayGameOver(lastPlayerIndex: lastPlayerIndex)
         }
     }
@@ -211,6 +209,7 @@ class ViewController: UIViewController {
         labels.removeAll()
         lifeInputs.removeAll()
         histories.removeAll()
+        playerNames.removeAll()
         playerCount = 0
         
         removeAllStackViews()
@@ -230,6 +229,28 @@ class ViewController: UIViewController {
                 stackView.removeFromSuperview()
             }
         }
+    }
+    
+    
+    //EC: Change player's name
+    @objc func playerNameTapped(_ sender: UITapGestureRecognizer) {
+        guard let playerLabel = sender.view as? UILabel else { return }
+        
+        let alertController = UIAlertController(title: "Enter New Name", message: nil, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "New Name"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let newName = alertController.textFields?.first?.text else { return }
+            playerLabel.text = newName
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
