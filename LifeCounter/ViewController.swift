@@ -17,26 +17,27 @@ extension String {
 class ViewController: UIViewController {
     
     @IBOutlet weak var result: UILabel!
+    @IBOutlet weak var historyBtn: UIButton!
+    
     var lifeCounts: [Int] = []
     var labels: [UILabel] = []
     var lifeInputs: [UITextField] = []
     var playerNames: [UILabel] = []
     var addPlayerBtn = UIButton(type: .roundedRect)
     var histories: [String] = []
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addPlayerBtn.setTitle("Add player", for: .normal)
-        addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         addPlayerBtn.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(addPlayerBtn)
         
         NSLayoutConstraint.activate([
-            addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
-            addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 1),
+            addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 26),
             addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
             addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
         ])
@@ -102,8 +103,8 @@ class ViewController: UIViewController {
             
             NSLayoutConstraint.activate([
                 playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30)
+                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40)
             ])
         }
         
@@ -160,9 +161,9 @@ class ViewController: UIViewController {
         let recordStr = playerNames[player].text!
         
         if (previousLife < lifeCounts[player]) {
-            histories.append(recordStr + " has increased by \(lifeCounts[player] - previousLife)")
+            histories.append(recordStr + " life has increased by \(lifeCounts[player] - previousLife)")
         } else {
-            histories.append(recordStr + " has decreased by \(-lifeCounts[player] + previousLife)")
+            histories.append(recordStr + " life has decreased by \(-lifeCounts[player] + previousLife)")
         }
         
         addPlayerBtn.isEnabled = false
@@ -253,4 +254,3 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
-
