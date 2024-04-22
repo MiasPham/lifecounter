@@ -28,13 +28,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         addPlayerBtn.setTitle("Add player", for: .normal)
         addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-//        addPlayerBtn.frame = CGRect(x: 30, y: 60, width:90 , height:39)
         addPlayerBtn.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(addPlayerBtn)
         
         NSLayoutConstraint.activate([
-                addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
+                addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
                 addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
                 addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
                 addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
@@ -59,11 +58,12 @@ class ViewController: UIViewController {
     @IBAction func addPlayer(_ sender: UIButton) {
         let playerLabel = UILabel()
         playerLabel.text = "Player \(playerCount + 1)"
-        playerLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        playerLabel.font = UIFont.boldSystemFont(ofSize: 15)
+//        playerLabel.preferredMaxLayoutWidth =
             
         let lifeCountLabel = UILabel()
         lifeCountLabel.text = "Life Count: 20"
-        lifeCountLabel.font = UIFont.systemFont(ofSize: 16)
+        lifeCountLabel.font = UIFont.systemFont(ofSize: 15)
         
         let inputTextField = UITextField()
         inputTextField.placeholder = "Number"
@@ -82,31 +82,34 @@ class ViewController: UIViewController {
         minusBtn.accessibilityIdentifier = String(playerCount) + "-"
         minusBtn.addTarget(self, action: #selector(updateLifeCount(_:)), for: .touchUpInside)
         
-        let buttonStackView = UIStackView(arrangedSubviews: [lifeCountLabel, minusBtn, inputTextField, addBtn])
-        buttonStackView.axis = .horizontal
+//        let buttonStackView = UIStackView(arrangedSubviews: [lifeCountLabel, minusBtn, inputTextField, addBtn])
+//        buttonStackView.axis = .horizontal
         
-        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
-        playerInfoStackView.axis = .vertical
+//        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
+//        playerInfoStackView.axis = .horizontal
+//        playerInfoStackView.alignment = .center
+//        playerInfoStackView.spacing = 3
+        
+        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, lifeCountLabel, minusBtn, inputTextField, addBtn])
+        playerInfoStackView.axis = .horizontal
         playerInfoStackView.alignment = .center
         playerInfoStackView.spacing = 3
-        
-        
+
         if playerCount == 0 {
-            playerStackView = UIStackView(arrangedSubviews: [playerInfoStackView])
+            playerStackView = UIStackView()
             playerStackView.axis = .vertical
-//            playerStackView.distribution = .fillEqually
-            playerStackView.spacing = 20
+            playerStackView.spacing = 8
             playerStackView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(playerStackView)
             
             NSLayoutConstraint.activate([
                 playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
+                playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+                playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30)
             ])
-        } else {
-            playerStackView.addArrangedSubview(playerInfoStackView)
         }
+        
+        playerStackView.addArrangedSubview(playerInfoStackView)
         
         playerCount += 1
         if playerCount > 7 {
@@ -125,7 +128,6 @@ class ViewController: UIViewController {
         }
     }
     
-    //Still need to update this to receive numbers only
     @IBAction func updateLifeCount(_ sender: UIButton) {
         let playerStr = (sender.accessibilityIdentifier)!.prefix(1)
         let player: Int = Int(playerStr)!
