@@ -30,12 +30,23 @@
                                     <action selector="showHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIk-YD-iHO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsk-RD-b5s">
+                                <rect key="frame" x="299" y="717" width="68" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4jr-oZ-le3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X97-HO-E51" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="L7F-k0-u4j"/>
                             <constraint firstAttribute="bottom" secondItem="X97-HO-E51" secondAttribute="bottom" constant="40" id="Rhj-Ug-rJT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vsk-RD-b5s" secondAttribute="trailing" constant="26" id="TfS-yR-EdI"/>
+                            <constraint firstItem="X97-HO-E51" firstAttribute="top" secondItem="vsk-RD-b5s" secondAttribute="bottom" constant="56" id="baz-gH-5Oq"/>
+                            <constraint firstItem="vsk-RD-b5s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="299" id="f87-to-ITu"/>
                             <constraint firstItem="8fZ-c0-QCx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m6l-1M-Jda"/>
                             <constraint firstAttribute="trailing" secondItem="X97-HO-E51" secondAttribute="trailing" constant="20" id="uTN-Qp-DR7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8fZ-c0-QCx" secondAttribute="trailing" constant="20" id="x2M-Az-UK5"/>

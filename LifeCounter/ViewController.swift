@@ -201,6 +201,11 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    //EC: Add reset button
+    @IBAction func resetButton(_ sender: UIButton) {
+        resetGame()
+    }
+    
     func resetGame() {
         lifeCounts.removeAll()
         labels.removeAll()
