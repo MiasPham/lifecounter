@@ -15,7 +15,7 @@ extension String {
 }
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var result: UILabel!
     var lifeCounts: [Int] = []
     var labels: [UILabel] = []
@@ -29,18 +29,18 @@ class ViewController: UIViewController {
         addPlayerBtn.setTitle("Add player", for: .normal)
         addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         addPlayerBtn.translatesAutoresizingMaskIntoConstraints = false
-
+        
         self.view.addSubview(addPlayerBtn)
         
         NSLayoutConstraint.activate([
-                addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
-                addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-                addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
-                addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
-            ])
+            addPlayerBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
+            addPlayerBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            addPlayerBtn.widthAnchor.constraint(equalToConstant: 90),
+            addPlayerBtn.heightAnchor.constraint(equalToConstant: 39)
+        ])
         
         addPlayerBtn.addTarget(self, action: #selector(addPlayer(_:)), for: .touchUpInside)
-
+        
         for _ in 1...4 {
             addPlayer(addPlayerBtn)
         }
@@ -59,8 +59,8 @@ class ViewController: UIViewController {
         let playerLabel = UILabel()
         playerLabel.text = "Player \(playerCount + 1)"
         playerLabel.font = UIFont.boldSystemFont(ofSize: 15)
-//        playerLabel.preferredMaxLayoutWidth =
-            
+        //        playerLabel.preferredMaxLayoutWidth =
+        
         let lifeCountLabel = UILabel()
         lifeCountLabel.text = "Life Count: 20"
         lifeCountLabel.font = UIFont.systemFont(ofSize: 15)
@@ -82,19 +82,19 @@ class ViewController: UIViewController {
         minusBtn.accessibilityIdentifier = String(playerCount) + "-"
         minusBtn.addTarget(self, action: #selector(updateLifeCount(_:)), for: .touchUpInside)
         
-//        let buttonStackView = UIStackView(arrangedSubviews: [lifeCountLabel, minusBtn, inputTextField, addBtn])
-//        buttonStackView.axis = .horizontal
+        //        let buttonStackView = UIStackView(arrangedSubviews: [lifeCountLabel, minusBtn, inputTextField, addBtn])
+        //        buttonStackView.axis = .horizontal
         
-//        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
-//        playerInfoStackView.axis = .horizontal
-//        playerInfoStackView.alignment = .center
-//        playerInfoStackView.spacing = 3
+        //        let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, buttonStackView])
+        //        playerInfoStackView.axis = .horizontal
+        //        playerInfoStackView.alignment = .center
+        //        playerInfoStackView.spacing = 3
         
         let playerInfoStackView = UIStackView(arrangedSubviews: [playerLabel, lifeCountLabel, minusBtn, inputTextField, addBtn])
         playerInfoStackView.axis = .horizontal
         playerInfoStackView.alignment = .center
         playerInfoStackView.spacing = 3
-
+        
         if playerCount == 0 {
             playerStackView = UIStackView()
             playerStackView.axis = .vertical
@@ -147,11 +147,12 @@ class ViewController: UIViewController {
             let alertController = UIAlertController(title: "Error Input", message: "Please Input Number Only", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK!", style: .default, handler: nil)
             alertController.addAction(alertAction)
-
+            
             // Present UIAlertController
             present(alertController, animated: true, completion: nil)
             lifeInputs[player].text = ""
             return
+            
         }
         
         // Read the life change amount from the text field
@@ -170,7 +171,60 @@ class ViewController: UIViewController {
         displayLife(player: player)
         // Clear the text field after updating
         lifeInputs[player].text = ""
+        
+        checkGameOver()
     }
-
+    
+    //EC: Game over and return the game to the OG state
+    func checkGameOver() {
+        var playersLeft = 0
+        var lastPlayerIndex = -1
+        for (index, lifeCount) in lifeCounts.enumerated() {
+            if lifeCount > 0 {
+                playersLeft += 1
+                lastPlayerIndex = index
+            }
+        }
+        if playersLeft == 1 {
+            // Display "Game over!" message and OK button
+            displayGameOver(lastPlayerIndex: lastPlayerIndex)
+        }
+    }
+    
+    func displayGameOver(lastPlayerIndex: Int) {
+        let alertController = UIAlertController(title: "Game over!", message: "Player \(lastPlayerIndex + 1) wins!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            // Reset back to the original application state
+            self?.resetGame()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func resetGame() {
+        lifeCounts.removeAll()
+        labels.removeAll()
+        lifeInputs.removeAll()
+        histories.removeAll()
+        playerCount = 0
+        
+        removeAllStackViews()
+        
+        for _ in 1...4 {
+            addPlayer(addPlayerBtn)
+        }
+        
+        result.text = ""
+        // Enable addPlayerBtn
+        addPlayerBtn.isEnabled = true
+    }
+    
+    func removeAllStackViews() {
+        for subview in view.subviews {
+            if let stackView = subview as? UIStackView {
+                stackView.removeFromSuperview()
+            }
+        }
+    }
 }
 
