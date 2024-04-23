@@ -25,11 +25,12 @@ class ViewController: UIViewController {
     var playerNames: [UILabel] = []
     var addPlayerBtn = UIButton(type: .roundedRect)
     var histories: [String] = []
+    var removePlayerRef: UIButton? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        addPlayerBtn.setTitle("Add player", for: .normal)
+        addPlayerBtn.setTitle("Add Player", for: .normal)
         addPlayerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         addPlayerBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,6 +60,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addPlayer(_ sender: UIButton) {
+        if removePlayerRef != nil {
+            removePlayerRef!.isEnabled = true
+        }
         let playerLabel = UILabel()
         playerLabel.text = "Player \(playerCount + 1)"
         playerLabel.font = UIFont.boldSystemFont(ofSize: 15)
@@ -102,7 +106,7 @@ class ViewController: UIViewController {
             view.addSubview(playerStackView)
             
             NSLayoutConstraint.activate([
-                playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+                playerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
                 playerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
                 playerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40)
             ])
@@ -128,7 +132,25 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func RemovePlayer(_ sender: UIButton) {
+        removePlayerRef = sender
+        print(playerStackView.arrangedSubviews.count)
+        playerStackView.arrangedSubviews[playerCount - 1].removeFromSuperview()
+        lifeCounts.remove(at: playerCount - 1)
+        labels.remove(at: playerCount - 1)
+        lifeInputs.remove(at: playerCount - 1)
+        playerNames.remove(at: playerCount - 1)
+        playerCount -= 1
+        
+        if (playerCount <= 2) {
+            sender.isEnabled = false
+        }
+    }
+    
     @IBAction func updateLifeCount(_ sender: UIButton) {
+        if removePlayerRef != nil {
+            removePlayerRef!.isEnabled = false
+        }
         let playerStr = (sender.accessibilityIdentifier)!.prefix(1)
         let player: Int = Int(playerStr)!
         

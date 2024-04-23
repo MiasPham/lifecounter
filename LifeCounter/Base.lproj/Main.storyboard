@@ -39,12 +39,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fZ-c0-QCx">
-                                <rect key="frame" x="127" y="67" width="41" height="27"/>
+                                <rect key="frame" x="230" y="67" width="46" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="History"/>
                                 <connections>
                                     <action selector="showHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIk-YD-iHO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-Vz-7Fo">
+                                <rect key="frame" x="40" y="89" width="84" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Remove Player"/>
+                                <connections>
+                                    <action selector="RemovePlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s99-2W-Uz1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,11 +62,13 @@
                         <constraints>
                             <constraint firstItem="8fZ-c0-QCx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="1lq-4i-WQJ"/>
                             <constraint firstItem="X97-HO-E51" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="L7F-k0-u4j"/>
+                            <constraint firstItem="S3f-Vz-7Fo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Me2-ec-doB"/>
                             <constraint firstAttribute="bottom" secondItem="X97-HO-E51" secondAttribute="bottom" constant="40" id="Rhj-Ug-rJT"/>
                             <constraint firstItem="vsk-RD-b5s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="WCb-qc-GJT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vsk-RD-b5s" secondAttribute="trailing" constant="50" id="g7M-KL-T9d"/>
-                            <constraint firstItem="vsk-RD-b5s" firstAttribute="leading" secondItem="8fZ-c0-QCx" secondAttribute="trailing" constant="118" id="qO4-GV-JvR"/>
-                            <constraint firstItem="8fZ-c0-QCx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="qsP-4v-8oO"/>
+                            <constraint firstItem="vsk-RD-b5s" firstAttribute="leading" secondItem="8fZ-c0-QCx" secondAttribute="trailing" constant="10" id="qO4-GV-JvR"/>
+                            <constraint firstItem="8fZ-c0-QCx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="230" id="qsP-4v-8oO"/>
+                            <constraint firstItem="S3f-Vz-7Fo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="sCq-L1-AhY"/>
                             <constraint firstAttribute="trailing" secondItem="X97-HO-E51" secondAttribute="trailing" constant="20" id="uTN-Qp-DR7"/>
                         </constraints>
                     </view>
